@@ -26,7 +26,8 @@ export class UsersController {
   @Get()
   @HttpCode(HttpStatus.OK)
   async findAll() {
-    return this.usersService.findAll();
+    const users = await this.usersService.findAll();
+    return { results: users };
   }
 
   @Get(':id')

@@ -68,10 +68,7 @@ export class KafkaController {
     const query = new GetUsersQuery();
     const users = await this.queryBus.execute(query);
 
-    return {
-      success: true,
-      data: users,
-    };
+    return users;
   }
 
   @MessagePattern('user.query.one')
@@ -83,9 +80,6 @@ export class KafkaController {
     const query = new GetUserQuery(id);
     const user = await this.queryBus.execute(query);
 
-    return {
-      success: true,
-      data: user,
-    };
+    return user;
   }
 }
